@@ -9,16 +9,14 @@ import { Transaction } from '../model/transaction';
 @Injectable({
   providedIn: 'root'
 })
-export class RevenueApiService {
+export class DeleteApiService {
 
   URL = 'https://easy-finance-beta.herokuapp.com/api/';
 
   constructor(private http: HttpClient) { }
 
-  setRevenueById(id: number, obj: Transaction){
-    return this.http.put<Transaction>(`${this.URL}/transaction/edit?id=${id}&value=${obj}`, obj);
+  deleteTransactionById(id: number){
+    return this.http.delete(`/transaction/remove?id=${id}`)
   }
-
-  //corrigir put e verificar uso de Observables
 
 }
