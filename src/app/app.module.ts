@@ -19,9 +19,8 @@ import { AccountExtractComponent } from './account-extract/account-extract.compo
 
 // PrimeNG
 import { MenuModule } from 'primeng/menu';
-
-
-
+import { CardModule } from "primeng/card";
+import {ChartModule} from 'primeng/chart';
 
 
 @NgModule({
@@ -39,7 +38,9 @@ import { MenuModule } from 'primeng/menu';
     BrowserAnimationsModule,
     FontAwesomeModule,
     MenuModule,
-    HttpClientModule
+    HttpClientModule,
+    CardModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

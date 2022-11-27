@@ -13,22 +13,34 @@ export class DashboardComponent implements OnInit {
 
   period: Period;
   transactions: Transaction[];
+  transactionsData: any;
 
   constructor(private financeApi: FinanceApiService, private util: GlobalUtil) {
     this.period = new Period;
-    this.transactions = []
+    this.transactions = [];
   }
 
   ngOnInit(): void {
     this.period.yearMonth = this.util.currentYearMonth();
-    this.getTransactionsByPeriod(this.period.yearMonth)
+    this.getTransactionsByPeriod(this.period.yearMonth);
+    this.buildChart()
   }
 
   getTransactionsByPeriod(period: string){
     this.financeApi.getTransactionsByPeriod(period).subscribe(data => {
       this.transactions = data
-      console.log("🚀 ~ file: dashboard.component.ts ~ line 30 ~ DashboardComponent ~ this.financeApi.getTransactionsByPeriod ~ this.transactions", this.transactions)
     })
   }
 
+  buildChart(){
+    this.transactionsData = {
+      labels: ['Receitas', 'Despesas'],
+          datasets: [
+            {
+              data: [1800, 300],
+              backgroundColor: ["#ffd400", "#ff7f00"],
+            }
+          ],
+    }
+  }
 }

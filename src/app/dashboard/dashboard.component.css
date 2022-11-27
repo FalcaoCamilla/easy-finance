@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+.dashboard{
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  background: #242424;
+  padding: 1em;
+  margin: 1em 0.1em;
+  box-sizing: border-box;
+}
+
+::ng-deep .p-card{
+  border-radius: 10px;
+  position: relative;
+  padding: 0;
+}
+
+:host ::ng-deep div.colorbox{
+  background: linear-gradient(90deg, rgb(15, 120, 185) 48%, rgb(2, 84, 146) 100%);
+}
+
+:host ::ng-deep div.colorbox-2{
+  background: linear-gradient(90deg, rgba(112,175,48,1) 37%, rgba(62,161,17,1) 89%);
+}
+:host ::ng-deep div.colorbox-3{
+  background: linear-gradient(90deg, rgba(244,110,110,1) 37%, rgba(230,80,80,1) 89%);
+}
+
+::ng-deep .icon-card{
+  font-size: 130px;
+  opacity: 0.2;
+  position: absolute;
+  left: 0px;
+}
+
+::ng-deep .menu-card-header{
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+}
+::ng-deep .menu-card-header p{
+  margin-top: 20px;
+}
+
+::ng-deep .p-card .p-card-content{
+  margin-top: -28px;
+  margin-right: 12px;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+::ng-deep .p-card-content p{
+  font-size: 32px;
+  margin: 0;
+}
+
+.graphics{
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.graphics .chart{
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  background: #242424;
+  padding: 2em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  width: 49% !important;
+}
+
+.graphic-description{
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
