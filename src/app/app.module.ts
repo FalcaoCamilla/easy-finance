@@ -21,6 +21,7 @@ import { AccountExtractComponent } from './account-extract/account-extract.compo
 import { MenuModule } from 'primeng/menu';
 import { CardModule } from "primeng/card";
 import {ChartModule} from 'primeng/chart';
+import {PanelModule} from 'primeng/panel';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {ChartModule} from 'primeng/chart';
     MenuModule,
     HttpClientModule,
     CardModule,
-    ChartModule
+    ChartModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
