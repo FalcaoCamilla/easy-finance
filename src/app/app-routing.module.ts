@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountExtractComponent } from './account-extract/account-extract.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IntroduceExpenseComponent } from './introduce-expense/introduce-expense.component';
-import { IntroduceRevenueComponent } from './introduce-revenue/introduce-revenue.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { IntroduceTransactionComponent } from './introduce-transaction/introduce-transaction.component';
+import { RevenueComponent } from './revenue/revenue.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'revenue', component: IntroduceRevenueComponent},
-  {path: 'expense', component: IntroduceExpenseComponent},
-  {path: 'account', component: AccountExtractComponent}
+  {path: 'revenue', component: RevenueComponent},
+  {path: 'expense', component: ExpenseComponent},
+  {path: 'account', component: AccountExtractComponent},
+  {path: 'introduce', component: IntroduceTransactionComponent}
 ];
 
 @NgModule({

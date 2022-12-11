@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardDto } from '../model/dashboard.dto';
 import { Transaction } from '../model/transaction';
 import { Period } from '../model/transaction.filterPeriod';
 import { GlobalUtil } from '../model/util.global';
@@ -12,23 +13,24 @@ import { FinanceApiService } from '../services/finance.api.service';
 export class DashboardComponent implements OnInit {
 
   period: Period;
-  transactions: Transaction[];
+  transactions: DashboardDto;
   transactionsData: any;
 
   constructor(private financeApi: FinanceApiService, private util: GlobalUtil) {
     this.period = new Period;
-    this.transactions = [];
+    this.transactions = new DashboardDto;
   }
 
   ngOnInit(): void {
     this.period.yearMonth = this.util.currentYearMonth();
-    this.getTransactionsByPeriod(this.period.yearMonth);
+    this.getDashboardTotals();
     this.buildChart()
   }
 
-  getTransactionsByPeriod(period: string){
-    this.financeApi.getTransactionsByPeriod(period).subscribe(data => {
+  getDashboardTotals(){
+    this.financeApi.getDashboardTotals().subscribe(data => {
       this.transactions = data
+      console.log("🚀 ~ file: dashboard.component.ts:32 ~ DashboardComponent ~ this.financeApi.getTransactionsByPeriod ~ this.transactions = data", this.transactions = data)
     })
   }
 
@@ -37,7 +39,7 @@ export class DashboardComponent implements OnInit {
       labels: ['Receitas', 'Despesas'],
           datasets: [
             {
-              data: [1800, 300],
+              data: [this.transactions.totalRevenues, this.transactions.totalExpenses],
               backgroundColor: ["#ffd400", "#ff7f00"],
             }
           ],

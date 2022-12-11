@@ -3,11 +3,11 @@ import { RevenueTransaction } from '../model/revenue.transaction';
 import { RevenueApiService } from '../services/revenue.api.service';
 
 @Component({
-  selector: 'app-introduce-revenue',
-  templateUrl: './introduce-revenue.component.html',
-  styleUrls: ['./introduce-revenue.component.css']
+  selector: 'app-revenue',
+  templateUrl: './revenue.component.html',
+  styleUrls: ['./revenue.component.css']
 })
-export class IntroduceRevenueComponent implements OnInit {
+export class RevenueComponent implements OnInit {
 
   revenueTransaction: RevenueTransaction;
 

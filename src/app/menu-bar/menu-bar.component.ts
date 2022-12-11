@@ -31,7 +31,7 @@ export class MenuBarComponent implements OnInit {
             ]
           },
           {
-            label: 'Extrato',
+            label: 'Transação',
             items: [
                 {label: 'Lançamentos', icon: 'pi pi-wallet', routerLink: 'account'},
             ]
