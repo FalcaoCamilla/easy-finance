@@ -19,10 +19,6 @@ export class RevenueApiService {
     return this.http.put<Transaction>(`${this.URL}/transaction/edit?id=${id}&value=${obj}`, obj);
   }
 
-  introduceRevenue(obj: Transaction){
-    return this.http.post<Transaction>(`${this.URL}/create`, obj)
-  }
-
   //corrigir put e verificar uso de Observables
 
 }

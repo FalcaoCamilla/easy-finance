@@ -5,8 +5,11 @@
   border-radius: 5px;
   background: #393939;
   padding: 1em;
-  margin: 1em 0.1em;
+  height: 97vh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .dashboard-cards{

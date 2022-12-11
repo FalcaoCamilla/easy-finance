@@ -25,7 +25,6 @@ import {ChartModule} from 'primeng/chart';
 import {PanelModule} from 'primeng/panel';
 import { IntroduceTransactionComponent } from './introduce-transaction/introduce-transaction.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +45,7 @@ import { IntroduceTransactionComponent } from './introduce-transaction/introduce
     CardModule,
     ChartModule,
     PanelModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

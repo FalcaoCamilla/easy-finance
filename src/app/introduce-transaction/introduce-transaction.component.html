@@ -1,31 +1,53 @@
-<form autocomplete="off">
+<form method="post" autocomplete="off" #frm="ngForm" (ngSubmit)="introduceTransaction(frm)">
   <p-panel header="Lançar movimentação"><br>
       <div class="ui-g ui-fluid form-group">
           <div class="ui-g-12 ui-md-3">
               <span class="md-inputfield">
-                  <input id="desciption" name="desciption" type="text" maxlength="100" required [(ngModel)]="newTransaction.description" pInputText >
+                  <input id="desciption" name="desciption" type="text" maxlength="250" required [(ngModel)]="newTransaction.description" pInputText >
                   <label for="desciption">Descrição *</label>
               </span>
           </div>
-          <div class="ui-g-12 ui-md-9">
+          <div class="ui-g-12 ui-md-3">
               <span class="md-inputfield">
                   <input id="value" name="value" type="number" maxlength="25" required [(ngModel)]="newTransaction.value" pInputText>
                   <label for="value" >Valor *</label>
               </span>
-
+          </div>
+          <div class="ui-g-12 ui-md-3">
+              <span class="md-inputfield">
+                  <input id="category" name="category" type="text" maxlength="250" required [(ngModel)]="newTransaction.category" pInputText>
+                  <label for="category" >Categoria *</label>
+              </span>
+          </div>
+          <div class="ui-g-12 ui-md-3">
+              <span class="md-inputfield">
+                  <input id="date" name="date" type="date"required [(ngModel)]="newTransaction.yearMonthDay" pInputText>
+                  <label for="date" >Data *</label>
+              </span>
+          </div>
+          <div class="ui-g-12 ui-md-3">
+              <div class="p-field-radiobutton">
+                <input id="revenue" name="revenue" type="radio" value="+" [(ngModel)]="newTransaction.type">
+                <label for="revenue">Receita</label>
+              </div>
+              <div class="p-field-radiobutton">
+                <input id="expense" name="expense" type="radio" value="-" [(ngModel)]="newTransaction.type">
+                <label for="expense">Despesa</label>
+              </div>
           </div>
       </div>
 
       <div class="ui-g ui-fluid form-group">
           <div class="ui-g-12">
               <div class="ui-g-12 ui-md-4">
-                  <button title="Salvar" pButton type="button" label="Salvar" (click)="introduceTransaction()" class="ui-button-introduce"></button>
-              </div>
+                  <button title="Salvar" pButton type="submit" class="ui-button-introduce">Salvar</button>
+                </div>
               <div class="ui-g-12 ui-md-4"></div>
               <div class="ui-g-12 ui-md-4">
-                  <button title="Cancelar" pButton type="button" label="Cancelar" routerLink="/account" class="ui-button-introduce"></button>
+                  <button title="Cancelar" pButton type="button" routerLink="/account" class="ui-button-introduce">Cancelar</button>
               </div>
           </div>
       </div>
+
   </p-panel>
 </form>

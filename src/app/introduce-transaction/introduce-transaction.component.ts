@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Transaction } from '../model/transaction';
+import { FinanceIntroduceService } from '../services/finance.introduce.service';
 
 @Component({
   selector: 'app-introduce-transaction',
@@ -8,17 +10,32 @@ import { Transaction } from '../model/transaction';
 })
 export class IntroduceTransactionComponent implements OnInit {
 
-  newTransaction: Transaction;
+  transactions: Transaction[];
+  newTransaction: any;
+  type: string = '+';
+  dates: any = [];
 
-  constructor() {
-    this.newTransaction = new Transaction;
+
+  constructor(private introduceT: FinanceIntroduceService) {
+    this.transactions = [];
   }
 
   ngOnInit(): void {
+    this.newTransaction = {};
   }
 
-  introduceTransaction(){
-    
+  introduceTransaction(frm: any){
+    this.newTransaction.year = new Date(this.newTransaction.yearMonthDay).getFullYear();
+    this.newTransaction.month = (new Date(this.newTransaction.yearMonthDay).getMonth()+1).toString();
+    this.newTransaction.day = new Date(this.newTransaction.yearMonthDay).getUTCDate();
+    this.newTransaction.yearMonth = this.newTransaction.year + '-' + this.newTransaction.month
+
+    this.introduceT.setTransaction(this.newTransaction).subscribe(res => {
+
+      this.transactions.push(res)
+
+      frm.reset();
+    })
   }
 
 }

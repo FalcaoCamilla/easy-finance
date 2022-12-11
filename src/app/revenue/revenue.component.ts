@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RevenueTransaction } from '../model/revenue.transaction';
+import { Transaction } from '../model/transaction';
+import { FinanceIntroduceService } from '../services/finance.introduce.service';
 import { RevenueApiService } from '../services/revenue.api.service';
 
 @Component({
@@ -9,19 +11,19 @@ import { RevenueApiService } from '../services/revenue.api.service';
 })
 export class RevenueComponent implements OnInit {
 
-  revenueTransaction: RevenueTransaction;
+  revenueTransaction: Transaction;
 
-  constructor(private introduce: RevenueApiService) {
-    this.revenueTransaction = new RevenueTransaction
+  constructor(private introduce: FinanceIntroduceService) {
+    this.revenueTransaction = new Transaction
   }
 
   ngOnInit(): void {
   }
 
-  introduceRevenue(revenueTransaction: RevenueTransaction){
-    this.introduce.introduceRevenue(revenueTransaction).subscribe(data => {
-      this.revenueTransaction = data
-    })
-  }
+  // introduceRevenue(revenue: Transaction){
+  //   this.introduce.setTransaction(revenueTransaction).subscribe(data => {
+  //     this.revenueTransaction = data
+  //   })
+  // }
 
 }
