@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -24,6 +24,9 @@ import { CardModule } from "primeng/card";
 import {ChartModule} from 'primeng/chart';
 import {PanelModule} from 'primeng/panel';
 import { IntroduceTransactionComponent } from './introduce-transaction/introduce-transaction.component';
+import { ButtonModule } from 'primeng/button';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { IntroduceTransactionComponent } from './introduce-transaction/introduce
     ChartModule,
     PanelModule,
     FormsModule,
+    ButtonModule,
+    RippleModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

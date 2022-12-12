@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { PrimeNGConfig } from 'primeng/api';
 import { Transaction } from '../model/transaction';
 import { FinanceIntroduceService } from '../services/finance.introduce.service';
 
@@ -15,16 +15,16 @@ export class IntroduceTransactionComponent implements OnInit {
   type: string = '+';
   dates: any = [];
 
-
-  constructor(private introduceT: FinanceIntroduceService) {
+  constructor(private introduceT: FinanceIntroduceService, private primengConfig: PrimeNGConfig) {
     this.transactions = [];
   }
 
   ngOnInit(): void {
     this.newTransaction = {};
+    this.primengConfig.ripple = true;
   }
 
-  introduceTransaction(frm: any){
+  introduceTransaction(transactionForm: any){
     this.newTransaction.year = new Date(this.newTransaction.yearMonthDay).getFullYear();
     this.newTransaction.month = (new Date(this.newTransaction.yearMonthDay).getMonth()+1).toString();
     this.newTransaction.day = new Date(this.newTransaction.yearMonthDay).getUTCDate();
@@ -34,7 +34,7 @@ export class IntroduceTransactionComponent implements OnInit {
 
       this.transactions.push(res)
 
-      frm.reset();
+      transactionForm.reset();
     })
   }
 

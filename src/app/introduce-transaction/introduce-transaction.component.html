@@ -1,53 +1,66 @@
-<form method="post" autocomplete="off" #frm="ngForm" (ngSubmit)="introduceTransaction(frm)">
-  <p-panel header="Lançar movimentação"><br>
-      <div class="ui-g ui-fluid form-group">
-          <div class="ui-g-12 ui-md-3">
-              <span class="md-inputfield">
-                  <input id="desciption" name="desciption" type="text" maxlength="250" required [(ngModel)]="newTransaction.description" pInputText >
-                  <label for="desciption">Descrição *</label>
-              </span>
-          </div>
-          <div class="ui-g-12 ui-md-3">
-              <span class="md-inputfield">
-                  <input id="value" name="value" type="number" maxlength="25" required [(ngModel)]="newTransaction.value" pInputText>
-                  <label for="value" >Valor *</label>
-              </span>
-          </div>
-          <div class="ui-g-12 ui-md-3">
-              <span class="md-inputfield">
-                  <input id="category" name="category" type="text" maxlength="250" required [(ngModel)]="newTransaction.category" pInputText>
-                  <label for="category" >Categoria *</label>
-              </span>
-          </div>
-          <div class="ui-g-12 ui-md-3">
-              <span class="md-inputfield">
-                  <input id="date" name="date" type="date"required [(ngModel)]="newTransaction.yearMonthDay" pInputText>
-                  <label for="date" >Data *</label>
-              </span>
-          </div>
-          <div class="ui-g-12 ui-md-3">
-              <div class="p-field-radiobutton">
-                <input id="revenue" name="revenue" type="radio" value="+" [(ngModel)]="newTransaction.type">
-                <label for="revenue">Receita</label>
-              </div>
-              <div class="p-field-radiobutton">
-                <input id="expense" name="expense" type="radio" value="-" [(ngModel)]="newTransaction.type">
-                <label for="expense">Despesa</label>
-              </div>
-          </div>
-      </div>
+<form method="post" autocomplete="off" #transactionForm="ngForm" (ngSubmit)="introduceTransaction(transactionForm)">
 
-      <div class="ui-g ui-fluid form-group">
-          <div class="ui-g-12">
-              <div class="ui-g-12 ui-md-4">
-                  <button title="Salvar" pButton type="submit" class="ui-button-introduce">Salvar</button>
+  <p-panel header="Lançar movimentação"><br>
+
+    <div class="grid p-fluid form-transaction">
+        <div class="p-col-6">
+            <div class="p-inputgroup form-group">
+                <span class="p-inputgroup-addon form-span"><i class="pi pi-user"></i></span>
+                <input class="input-form" id="desciption" placeholder="Descrição" name="desciption" type="text" maxlength="250" required [(ngModel)]="newTransaction.description" pInputText >
+            </div>
+        </div>
+        <div class="p-col-6">
+            <div class="p-inputgroup form-group">
+                <span class="p-inputgroup-addon form-span"><i class="pi pi-tags"></i></span>
+                <input class="input-form" id="category" placeholder="Categoria" name="category" type="text" maxlength="250" required [(ngModel)]="newTransaction.category" pInputText>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid p-fluid form-transaction">
+        <div class="p-col-4">
+            <div class="p-inputgroup form-group">
+                <span class="p-inputgroup-addon form-span"><i class="pi pi-calendar"></i></span>
+                <input class="input-form" placeholder="dd-mm-aaaa" id="date" name="date" type="date"vrequired [(ngModel)]="newTransaction.yearMonthDay" pInputText>
+            </div>
+        </div>
+        <div class="p-col-4">
+            <div class="p-inputgroup form-group">
+                <span class="p-inputgroup-addon form-span"><i class="pi pi-money-bill"></i></span>
+                <input class="input-form" id="value" placeholder="Valor" name="value" type="number" maxlength="25" required [(ngModel)]="newTransaction.value" pInputText>
+            </div>
+        </div>
+        <div class="p-col-4 radio-group">
+            <fieldset>
+                <legend>Selecione o tipo de transação</legend>
+                <div class="p-inputgroup form-group">
+                    <input class="radio" id="revenue" placeholder="Receita" name="revenue" type="radio" value="+" [(ngModel)]="newTransaction.type">
+                    <label for="revenue">Receita</label>
                 </div>
-              <div class="ui-g-12 ui-md-4"></div>
-              <div class="ui-g-12 ui-md-4">
-                  <button title="Cancelar" pButton type="button" routerLink="/account" class="ui-button-introduce">Cancelar</button>
-              </div>
-          </div>
-      </div>
+                <div class="p-inputgroup form-group">
+                    <input class="radio" id="expense" placeholder="Despesa" name="expense" type="radio" value="-" [(ngModel)]="newTransaction.type">
+                    <label for="expense">Despesa</label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div>
+        <div class="grid p-fluid form-transaction form-buttons">
+            <span class="p-buttonset p-col-6">
+                <button class="form-button" pButton type="submit" pRipple label="Salvar" icon="pi pi-check-circle"></button>
+                <!-- <button class="form-button" pButton type="button" pRipple label="Limpar" icon="pi pi-trash"></button> -->
+                <button class="form-button" pButton type="button" pRipple label="Cancelar" routerLink="/account"  icon="pi pi-ban"></button>
+            </span>
+            <!-- <div class="p-col-3 form-buttons">
+                <button class="form-button" title="Salvar" pButton type="submit" class="ui-button-introduce">Salvar</button>
+            </div>
+            <div class="p-col-3 form-buttons">
+                <button class="form-button" title="Cancelar" pButton type="button" routerLink="/account" class="ui-button-introduce">Cancelar</button>
+            </div> -->
+        </div>
+    </div>
 
   </p-panel>
+
 </form>
