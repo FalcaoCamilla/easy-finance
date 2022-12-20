@@ -5,11 +5,9 @@
   border-radius: 5px;
   background: #393939;
   padding: 1em;
-  height: 97vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .dashboard-cards{
@@ -29,6 +27,10 @@
 
 :host ::ng-deep div.colorbox{
   background: linear-gradient(90deg, rgb(15, 120, 185) 48%, rgb(2, 84, 146) 100%);
+}
+
+:host ::ng-deep div.colorbox-1{
+  background: linear-gradient(90deg, rgb(245, 184, 52) 48%, rgb(255, 182, 25) 100%);
 }
 
 :host ::ng-deep div.colorbox-2{

@@ -21,7 +21,7 @@
         <div class="p-col-4">
             <div class="p-inputgroup form-group">
                 <span class="p-inputgroup-addon form-span"><i class="pi pi-calendar"></i></span>
-                <input class="input-form" placeholder="dd-mm-aaaa" id="date" name="date" type="date"vrequired [(ngModel)]="newTransaction.yearMonthDay" pInputText>
+                <input class="input-form" placeholder="dd-mm-aaaa" id="date" name="date" type="date" required [(ngModel)]="newTransaction.yearMonthDay" pInputText>
             </div>
         </div>
         <div class="p-col-4">
@@ -48,7 +48,7 @@
     <div>
         <div class="grid p-fluid form-transaction form-buttons">
             <span class="p-buttonset p-col-6">
-                <button class="form-button" pButton type="submit" pRipple label="Salvar" icon="pi pi-check-circle"></button>
+                <button class="form-button" pButton type="submit" pRipple label="Salvar" routerLink="/account" icon="pi pi-check-circle"></button>
                 <!-- <button class="form-button" pButton type="button" pRipple label="Limpar" icon="pi pi-trash"></button> -->
                 <button class="form-button" pButton type="button" pRipple label="Cancelar" routerLink="/account"  icon="pi pi-ban"></button>
             </span>

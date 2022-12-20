@@ -1,6 +1,7 @@
+import { TotalizersByDay } from "./totalizers.day";
+import { TotalizersByMonth } from "./totalizers.month";
+
 export class DashboardDto{
-  "totalTransactions": number;
-  "totalExpenses": number;
-  "totalRevenues": number;
-  "balance": number;
+  "totalizersByMonth": TotalizersByMonth;
+  "totalizersByDay": TotalizersByDay;
 }

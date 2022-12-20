@@ -21,12 +21,13 @@ import { AccountExtractComponent } from './account-extract/account-extract.compo
 // PrimeNG
 import { MenuModule } from 'primeng/menu';
 import { CardModule } from "primeng/card";
-import {ChartModule} from 'primeng/chart';
-import {PanelModule} from 'primeng/panel';
+import { ChartModule } from 'primeng/chart';
+import { PanelModule } from 'primeng/panel';
 import { IntroduceTransactionComponent } from './introduce-transaction/introduce-transaction.component';
 import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
+import { TableModule } from 'primeng/table'
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { RippleModule } from 'primeng/ripple';
     FormsModule,
     ButtonModule,
     RippleModule,
-    RadioButtonModule
+    RadioButtonModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

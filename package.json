@@ -26,13 +26,14 @@
     "primeflex": "^2.0.0",
     "primeicons": "^6.0.1",
     "rxjs": "~7.5.0",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.8",
     "@angular/cdk": "^11.2.1",
-    "@angular/cli": "~14.2.8",
+    "@angular/cli": "^15.0.4",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",

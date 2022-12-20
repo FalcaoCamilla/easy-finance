@@ -1,5 +1,11 @@
-::placeholder{
-    color: rgb(255, 255, 255);
+input::placeholder{
+    color: rgb(224, 224, 224);
+    font-style: italic;
+}
+
+textarea:focus, input:focus, input {
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .form-transaction{
@@ -69,7 +75,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 input[type=date]::-webkit-datetime-edit {
-    color: rgb(255, 255, 255);
+    color: rgb(224, 224, 224);
 }
 
 input[type="number"]::-webkit-inner-spin-button,

@@ -1,52 +1,56 @@
 <div class="dashboard">
   <div class="p-grid dashboard-cards">
 
-    <p-card class="p-col-4 menu-card" styleClass="colorbox">
+    <p-card class="p-col-6 menu-card" styleClass="colorbox">
       <p-header class="menu-card-header">
         <i class="pi pi-wallet icon-card"></i>
         <p>Saldo</p>
       </p-header>
       <p>
-        R${{transactions.balance}}
+        R$ {{transactions.totalizersByMonth.balance}}
       </p>
     </p-card>
 
-    <p-card class="p-col-4 menu-card" styleClass="colorbox-2">
+    <p-card class="p-col-6 menu-card" styleClass="colorbox-1">
+      <p-header class="menu-card-header">
+        <i class="pi pi-chart-line icon-card"></i>
+        <p>Qtde. Transações</p>
+      </p-header>
+      <p>
+        {{transactions.totalizersByMonth.totalTransactions}}
+      </p>
+    </p-card>
+
+    <p-card class="p-col-6 menu-card" styleClass="colorbox-2">
       <p-header class="menu-card-header">
         <i class="pi pi-dollar icon-card"></i>
         <p>Receitas</p>
       </p-header>
       <p>
-        R${{transactions.totalRevenues}}
+        R$ {{transactions.totalizersByMonth.totalRevenues}}
       </p>
     </p-card>
 
-    <p-card class="p-col-4 menu-card" styleClass="colorbox-3">
+    <p-card class="p-col-6 menu-card" styleClass="colorbox-3">
       <p-header class="menu-card-header">
         <i class="pi pi-arrow-circle-down icon-card"></i>
         <p>Despesas</p>
       </p-header>
-      <p>R${{transactions.totalExpenses}}</p>
+      <p>R$ {{transactions.totalizersByMonth.totalExpenses}}</p>
     </p-card>
   </div>
 
-  <div class="ui-g-12 graphics">
-    <div class="ui-g-6 ui-sm-12 chart">
-        <h2 class="graphic-description">Receitas X Despesas</h2>
-        <p-chart height="300px" type="pie" [data]="transactionsData"></p-chart>
+  <div class="graphics">
+    <div class="p-col-6 chart">
+        <h2 class="graphic-description">Receitas X Despesas - Mensal</h2>
+        <p-chart height="300px" type="pie" [data]="pieData"></p-chart>
     </div>
-    <div class="ui-g-6 ui-sm-12 chart">
-        <h2 class="graphic-description">Receitas X Despesas</h2>
-        <p-chart height="300px" type="doughnut" [data]="transactionsData"></p-chart>
+    <div class="p-col-6 chart">
+        <h2 class="graphic-description">Receitas X Despesas - Mensal</h2>
+        <p-chart height="300px" type="bar" [data]="barData"></p-chart>
     </div>
   </div>
 </div>
-
-
-<!-- <div class="ui-g-12 ui-sm-12 chart">
-  <p-chart class="ui-g-6" type="pie" [data]="transactionsData"></p-chart>
-  <p-chart type="pie" [data]="transactionsData"></p-chart>
-</div> -->
 
 
 
