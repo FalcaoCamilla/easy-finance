@@ -15,7 +15,7 @@ export class FinanceApiService {
   constructor(private http: HttpClient) { }
 
   getTransactionsByPeriod(period: string): Observable<any>{
-    return this.http.get(`${this.URL}transaction?period=${period}`)
+    return this.http.get<any>(`${this.URL}transaction?period=${period}`)
   }
 
   getDashboardTotals(): Observable<DashboardDto>{

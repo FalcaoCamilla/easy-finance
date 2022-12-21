@@ -9,14 +9,14 @@ import { Transaction } from '../model/transaction';
 @Injectable({
   providedIn: 'root'
 })
-export class RevenueApiService {
+export class EditTransactionService {
 
-  URL = 'https://easy-finance-beta.herokuapp.com/api/';
+  URL = 'https://easy-finance-api.netlify.app/.netlify/functions/api/transaction/edit';
 
   constructor(private http: HttpClient) { }
 
-  setRevenueById(id: number, obj: Transaction){
-    return this.http.put<Transaction>(`${this.URL}/transaction/edit?id=${id}&value=${obj}`, obj);
+  setTransactionById(id: string, obj: Transaction){
+    return this.http.put<Transaction>(`${this.URL}?id=${id}&value=`, obj);
   }
 
   //corrigir put e verificar uso de Observables

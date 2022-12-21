@@ -1,0 +1,67 @@
+.account-header{
+  padding: 20px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-panel .p-panel-header .p-panel-title{
+  padding-top: 20px !important;
+}
+
+.input-filter{
+  height: 40px;
+  padding: 5px;
+  border-radius: 3px;
+  font-family: 'Roboto';
+  text-align: center;
+  margin-right: 10px;
+  color: #202020;
+  background: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  text-transform: capitalize;
+}
+
+th, td{
+  text-align: center !important;
+}
+
+tr:hover{
+  background-color: rgb(60, 60, 60);
+}
+
+th:last-child > span{
+  display: none;
+}
+
+.expense > span{
+  background-color: rgb(253, 59, 59);
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.revenue > span{
+  background-color: rgb(89, 168, 54);
+  font-weight: 500;
+  padding: 5px 9px;
+  border-radius: 5px;
+}
+
+.button-edit{
+  background-color: purple !important;
+  margin-right: 3px;
+}
+
+.button-delete{
+  background-color: rgb(253, 59, 59) !important;
+}
+
+:host ::ng-deep .no-label>.p-button-label {
+  display: none;
+}
+
+:host ::ng-deep .p-paginator input{
+  display: none !important;
+}

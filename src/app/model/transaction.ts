@@ -1,4 +1,5 @@
 export class Transaction {
+  _id: string = '';
   description: string = '';
   value: number = 0;
   category: string = '';

@@ -1,22 +1,86 @@
-<p-panel header="Transações"><br>
-    <!-- <div class="grid p-fluid form-transaction">
-        <div class="p-col-4">
-            <div class="p-inputgroup form-group">
-                <span class="p-inputgroup-addon form-span"><i class="pi pi-calendar"></i></span>
-                <input class="input-form" placeholder="dd-mm-aaaa" id="date" name="date" type="date" pInputText>
-            </div>
-        </div>
-        <div class="p-col-4">
-            <div class="p-inputgroup form-group">
-                <span class="p-inputgroup-addon form-span"><i class="pi pi-money-bill"></i></span>
-                <input class="input-form" id="value" placeholder="Valor" name="value" type="number" maxlength="25" required pInputText>
-            </div>
-        </div>
-    </div> -->
+<p-panel header="Transações">
+  <div class="account-header">
     <button title="Lançar movimentação" pButton type="button" label="Lançar movimentação" routerLink="/introduce" class="ui-button-introduce"></button>
+    <div>
+      <i class="ui-icon-search"></i>
+      <input class="input-filter" type="month" required [(ngModel)]="period" name="period" pInputDate title="date">
+      <button title="Busca mensal" pButton type="button" label="Buscar" (click)="getTransactionsByPeriod(period)" class="ui-button-introduce"></button>
+    </div>
+  </div>
 </p-panel>
-<p-table>
-  
-</p-table>
 
+<br>
+
+<p-table #dtable [value]="transactionsTable" [columns]="columnsTransaction" [responsive]="true" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,25,50,100]" >
+
+<ng-template pTemplate="colgroup">
+  <colgroup>
+      <col [style.width]="'20px'">
+      <col [style.width]="'35px'">
+      <col [style.width]="'45px'">
+      <col [style.width]="'20px'">
+      <col [style.width]="'25px'">
+      <col [style.width]="'25px'">
+  </colgroup>
+</ng-template>
+
+<ng-template pTemplate="header" let-columnsTransaction>
+  <tr>
+      <th *ngFor="let col of columnsTransaction" [pSortableColumn]="col.field">
+          {{col.header}}
+          <span>
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </span>
+
+      </th>
+  </tr>
+</ng-template>
+
+<ng-template pTemplate="body" let-rowData let-columnsTransaction="columnsTransaction">
+  <tr>
+    <td *ngIf="rowData.type==='+'" [ngClass]="'revenue'">
+      <span class="ui-column-title">
+        Receita
+      </span>
+  </td>
+
+  <td *ngIf="rowData.type==='-'" [ngClass]="'expense'">
+      <span class="ui-column-title">
+        Despesa
+      </span>
+  </td>
+
+      <td style="text-align: left">
+          <span class="ui-column-title">
+            {{rowData.category}}
+          </span>
+      </td>
+
+      <td style="text-align: left">
+          <span class="ui-column-title">
+            {{rowData.description}}
+          </span>
+      </td>
+
+      <td>
+          <span class="ui-column-title">
+            R$ {{rowData.value}}
+          </span>
+          <!-- {{rowData.value | mask:"00.000.000/0000-00"}} -->
+      </td>
+
+      <td style="text-align: left">
+        <span class="ui-column-title">
+          {{rowData.yearMonthDay}}
+        </span>
+      </td>
+
+      <td style="text-align: center">
+          <button pButton title="Editar" icon="pi pi-pencil" class='button-edit no-label' pTooltip="Editar" [routerLink]="['/edit']"  tooltipPosition="top"></button>
+          <button pButton title="Deletar" icon="pi pi-trash" class='button-delete no-label' pTooltip="Excluir" (click)="deleteTransaction(rowData._id)" tooltipPosition="top"></button>
+      </td>
+  </tr>
+</ng-template>
+
+</p-table>
 

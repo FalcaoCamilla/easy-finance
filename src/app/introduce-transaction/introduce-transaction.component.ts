@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { Transaction } from '../model/transaction';
 import { FinanceIntroduceService } from '../services/finance.introduce.service';
@@ -14,8 +15,9 @@ export class IntroduceTransactionComponent implements OnInit {
   newTransaction: any;
   type: string = '+';
   dates: any = [];
+  id: string = '';
 
-  constructor(private introduceT: FinanceIntroduceService, private primengConfig: PrimeNGConfig) {
+  constructor(private introduceT: FinanceIntroduceService, private primengConfig: PrimeNGConfig, private router: Router) {
     this.transactions = [];
   }
 
@@ -34,7 +36,7 @@ export class IntroduceTransactionComponent implements OnInit {
 
       this.transactions.push(res)
 
-      transactionForm.reset();
+      this.router.navigate(["/account"])
     })
   }
 

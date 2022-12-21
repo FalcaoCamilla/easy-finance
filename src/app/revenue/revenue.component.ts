@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { RevenueTransaction } from '../model/revenue.transaction';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Table } from 'primeng/table';
 import { Transaction } from '../model/transaction';
+import { GlobalUtil } from '../model/util.global';
+import { FinanceApiService } from '../services/finance.api.service';
 import { FinanceIntroduceService } from '../services/finance.introduce.service';
-import { RevenueApiService } from '../services/revenue.api.service';
 
 @Component({
   selector: 'app-revenue',
@@ -11,19 +12,34 @@ import { RevenueApiService } from '../services/revenue.api.service';
 })
 export class RevenueComponent implements OnInit {
 
-  revenueTransaction: Transaction;
+  period: any;
+  columnsTransaction: any[];
+  revenueTable: Transaction[];
 
-  constructor(private introduce: FinanceIntroduceService) {
-    this.revenueTransaction = new Transaction
+  @Input() set tableTransaction(tableTransaction: Transaction[]){
+    this.revenueTable = tableTransaction;
+  }
+
+  constructor(private getTransactions: FinanceApiService, private util: GlobalUtil) {
+    this.revenueTable = [];
+    this.columnsTransaction = [
+      { field: 'type', header: 'Tipo' },
+      { field: 'category', header: 'Categoria' },
+      { field: 'description', header: 'Descrição' },
+      { field: 'value', header: 'Valor' },
+      { field: 'date', header: 'Data' }
+    ]
   }
 
   ngOnInit(): void {
+    this.period = this.util.currentYearMonth();
+    this.getTransactionsByPeriod(this.period)
   }
 
-  // introduceRevenue(revenue: Transaction){
-  //   this.introduce.setTransaction(revenueTransaction).subscribe(data => {
-  //     this.revenueTransaction = data
-  //   })
-  // }
+  getTransactionsByPeriod(period: string){
+    this.getTransactions.getTransactionsByPeriod(period).subscribe(data => {
+    this.revenueTable = data
+    })
+  }
 
 }

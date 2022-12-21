@@ -27,7 +27,8 @@ import { IntroduceTransactionComponent } from './introduce-transaction/introduce
 import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
-import { TableModule } from 'primeng/table'
+import { TableModule } from 'primeng/table';
+import { EditTransactionComponent } from './edit-transaction/edit-transaction.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TableModule } from 'primeng/table'
     RevenueComponent,
     ExpenseComponent,
     AccountExtractComponent,
-    IntroduceTransactionComponent
+    IntroduceTransactionComponent,
+    EditTransactionComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,0 +1,45 @@
+.revenue-header{
+  padding: 15px 0
+}
+
+.input-filter{
+  height: 40px;
+  padding: 5px;
+  border-radius: 3px;
+  font-family: 'Roboto';
+  text-align: center;
+  margin-right: 10px;
+  color: #202020;
+  background: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  text-transform: capitalize;
+}
+
+th, td{
+  text-align: center !important;
+}
+
+tr{
+  line-height: 30px !important;
+}
+
+tr:hover{
+  background-color: rgb(60, 60, 60);
+}
+
+th:last-child > span{
+  display: none;
+}
+
+.expense > span{
+  background-color: rgb(253, 59, 59);
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+:host ::ng-deep .p-paginator input{
+  display: none !important;
+}

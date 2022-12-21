@@ -11,12 +11,12 @@ import { Transaction } from '../model/transaction';
 })
 export class DeleteApiService {
 
-  URL = 'https://easy-finance-beta.herokuapp.com/api/';
+  URL = 'https://easy-finance-api.netlify.app/.netlify/functions/api/';
 
   constructor(private http: HttpClient) { }
 
-  deleteTransactionById(id: number){
-    return this.http.delete(`/transaction/remove?id=${id}`)
+  deleteTransactionById(id: string){
+    return this.http.delete(`${this.URL}transaction/remove?id=${id}`)
   }
 
 }
