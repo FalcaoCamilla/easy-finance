@@ -1,9 +1,11 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Table } from 'primeng/table';
 import { IntroduceTransactionComponent } from '../introduce-transaction/introduce-transaction.component';
 import { Transaction } from '../model/transaction';
 import { GlobalUtil } from '../model/util.global';
 import { DeleteApiService } from '../services/delete.api.service';
+import { EditTransactionService } from '../services/edit-transaction.api.service';
 import { FinanceApiService } from '../services/finance.api.service';
 
 @Component({
@@ -25,7 +27,11 @@ export class AccountExtractComponent implements OnInit {
     // this.dtable.reset();
   }
 
-  constructor(private getTransactions: FinanceApiService, private delTransaction: DeleteApiService, private util: GlobalUtil) {
+  constructor(private getTransactions: FinanceApiService,
+    private delTransaction: DeleteApiService,
+    private editT: EditTransactionService,
+    private util: GlobalUtil,
+    private router: Router) {
     this.transactionsTable = [];
     this.columnsTransaction = [
       { field: 'type', header: 'Tipo' },
@@ -45,22 +51,20 @@ export class AccountExtractComponent implements OnInit {
   getTransactionsByPeriod(period: string){
     this.getTransactions.getTransactionsByPeriod(period).subscribe(data => {
       this.transactionsTable = data
-    console.log("🚀 ~ file: account-extract.component.ts:46 ~ AccountExtractComponent ~ this.getTransactions.getTransactionsByPeriod ~ this.transactionsTable", this.transactionsTable)
     })
   }
 
-  // editTransactionById(transactionEdit: Transaction){
-  //   console.log(transactionEdit._id)
-  //   return transactionEdit._id
-  // }
+
+  editTransactionById(id: string){
+    this.router.navigate([`/edit/${id}`])
+    return id
+  }
 
   deleteTransaction(id: string){
     this.delTransaction.deleteTransactionById(id).subscribe();
-
     setTimeout(function(){
       window.location.reload();
    }, 800)
   }
-
 
 }

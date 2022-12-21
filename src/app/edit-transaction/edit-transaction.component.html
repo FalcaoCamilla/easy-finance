@@ -1,4 +1,4 @@
-<form method="put" autocomplete="off" #transactionForm="ngForm" (ngSubmit)="setTransaction('63968ab4e14c510008c36a4a', transactionForm)">
+<form method="put" autocomplete="on" #transactionForm="ngForm" (ngSubmit)="setTransaction(transactionForm)">
 
   <p-panel header="Lançar movimentação"><br>
 
@@ -48,7 +48,7 @@
     <div>
         <div class="grid p-fluid form-transaction form-buttons">
             <span class="p-buttonset p-col-6">
-                <button class="form-button" pButton type="submit" pRipple label="Salvar" routerLink="/account" icon="pi pi-check-circle"></button>
+                <button class="form-button" pButton type="submit" pRipple label="Salvar" (click)="setTransaction(transactionForm)" icon="pi pi-check-circle"></button>
                 <!-- <button class="form-button" pButton type="button" pRipple label="Limpar" icon="pi pi-trash"></button> -->
                 <button class="form-button" pButton type="button" pRipple label="Cancelar" routerLink="/account"  icon="pi pi-ban"></button>
             </span>

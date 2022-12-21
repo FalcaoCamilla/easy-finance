@@ -76,7 +76,8 @@
       </td>
 
       <td style="text-align: center">
-          <button pButton title="Editar" icon="pi pi-pencil" class='button-edit no-label' pTooltip="Editar" [routerLink]="['/edit']"  tooltipPosition="top"></button>
+          <button pButton title="Editar" icon="pi pi-pencil" class='button-edit no-label'
+          pTooltip="Editar" (click)="editTransactionById(rowData._id)" tooltipPosition="top"></button>
           <button pButton title="Deletar" icon="pi pi-trash" class='button-delete no-label' pTooltip="Excluir" (click)="deleteTransaction(rowData._id)" tooltipPosition="top"></button>
       </td>
   </tr>

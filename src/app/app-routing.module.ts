@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'expense', component: ExpenseComponent},
   {path: 'account', component: AccountExtractComponent},
   {path: 'introduce', component: IntroduceTransactionComponent},
-  {path: 'edit', component: EditTransactionComponent}
+  {path: 'edit/:id', component: EditTransactionComponent}
 ];
 
 @NgModule({
