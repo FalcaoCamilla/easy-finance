@@ -33,10 +33,25 @@ export class EditTransactionComponent implements OnInit {
   }
 
   setTransaction(transactionForm: any){
-    this.editT.setTransactionById(this.id, this.newTransaction).subscribe(res => {
-      this.transactions.push(res)
+
+    this.editT.setTransactionById(this.id, this.newTransaction.value).subscribe(res => {
+      console.log(this.newTransaction.value)
+      this.newTransaction = res
       this.router.navigate(["/account"])
     })
   }
+
+  // setTransaction(transactionForm: any){
+  //   this.editT.setTransactionById(this.id, this.newTransaction).subscribe(res => {
+
+  //     this.newTransaction.year = new Date(this.newTransaction.yearMonthDay).getFullYear();
+  //     this.newTransaction.month = (new Date(this.newTransaction.yearMonthDay).getMonth()+1).toString();
+  //     this.newTransaction.day = new Date(this.newTransaction.yearMonthDay).getUTCDate();
+  //     this.newTransaction.yearMonth = this.newTransaction.year + '-' + this.newTransaction.month;
+
+  //     this.newTransaction.push(res)
+  //     this.router.navigate(["/account"])
+  //   })
+  // }
 
 }

@@ -15,8 +15,12 @@ export class EditTransactionService {
 
   constructor(private http: HttpClient) { }
 
-  setTransactionById(id: string, obj: Transaction){
-    return this.http.put<Transaction>(`${this.URL}?id=${id}&value=`, obj);
+  // setTransactionById(id: string, obj: Transaction){
+  //   return this.http.put<Transaction>(`${this.URL}?id=${id}&value=`, obj);
+  // }
+
+  setTransactionById(id: string, value: number) {
+    return this.http.put<Transaction>(`${this.URL}?id=${id}&value=${value}`, null);
   }
 
   //corrigir put e verificar uso de Observables

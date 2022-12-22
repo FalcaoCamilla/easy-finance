@@ -16,7 +16,9 @@ export class IntroduceTransactionComponent implements OnInit {
   type: string = '+';
   dates: any = [];
 
-  constructor(private introduceT: FinanceIntroduceService, private primengConfig: PrimeNGConfig, private router: Router) {
+  constructor(private introduceT: FinanceIntroduceService,
+    private primengConfig: PrimeNGConfig,
+    private router: Router) {
     this.transactions = [];
   }
 

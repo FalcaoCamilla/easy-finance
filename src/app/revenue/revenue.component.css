@@ -43,3 +43,26 @@ th:last-child > span{
 :host ::ng-deep .p-paginator input{
   display: none !important;
 }
+
+.graphics{
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-top: 10px;
+}
+
+.graphics .chart{
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  background: #1e1e1e;
+  padding: 2em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  width: 49% !important;
+}
+
+.graphic-description{
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}

@@ -40,7 +40,8 @@ export class AccountExtractComponent implements OnInit {
       { field: 'value', header: 'Valor' },
       { field: 'date', header: 'Data' },
       { field: 'options', header: 'Opções' },
-    ]
+    ];
+
   }
 
   ngOnInit(): void {
